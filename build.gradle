@@ -1,0 +1,42 @@
+group 'co.com.choucair.automatizacion'
+version '1.0-SNAPSHOT'
+
+description = 'Automatizacion Reto Tecnico Serenity.is'
+apply plugin: 'groovy'
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+apply plugin: 'java-library'
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+}
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.89")
+    }
+}
+dependencies {
+    testImplementation 'net.serenity-bdd:serenity-core:2.0.73'
+    testImplementation 'net.serenity-bdd:serenity-junit:2.0.73'
+    testImplementation('junit:junit:4.12')
+    testImplementation('org.assertj:assertj-core:3.13.2')
+    testImplementation('org.slf4j:slf4j-simple:1.7.28')
+    implementation 'net.serenity-bdd:serenity-core:2.0.73'
+    implementation 'net.serenity-bdd:serenity-junit:2.0.73'
+    implementation 'net.serenity-bdd:serenity-cucumber:1.9.45'
+    implementation('net.serenity-bdd:serenity-screenplay:2.0.73')
+    implementation 'net.serenity-bdd:serenity-ensure:2.0.80'
+    implementation('net.serenity-bdd:serenity-screenplay-webdriver:2.0.73')
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.6.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.6.1'
+
+}
+gradle.startParameter.continueOnFailure = true
