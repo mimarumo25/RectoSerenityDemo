@@ -15,12 +15,12 @@ pipeline {
                             {
                                 checkout([$class: 'GitSCM', branches: [[name: "master"]],
                                           wdoGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [
-                                        [credentialsId: "githubMiguel", url: "https://github.com/mimarumo25/ProyectoBase-Screemplay"]
+                                        [credentialsId: "GitPerso1", url: "https://github.com/mimarumo25/RectoSerenityDemo.git"]
                                 ]])
                             }
                 }
 
-        stage('SonarQube analysis')
+       /* stage('SonarQube analysis')
                 {
                     steps {
                         script {
@@ -46,7 +46,7 @@ pipeline {
                 }
             }
         }
-
+*/
         stage('Ejecutar Pruebas') {
             steps {
                 script {
@@ -103,7 +103,7 @@ pipeline {
                                 }
                     }
         }
-
+/*
         stage('Notificar') {
             steps {
                 script {
@@ -126,6 +126,6 @@ pipeline {
                         )
                 }
             }
-        }
+        }*/
     }
 }
