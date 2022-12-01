@@ -23,7 +23,7 @@ Característica: Inicio de sesion con usuario y password en la aplicacion sereni
 
 
   @Pedidos @Regresion
-  Esquema del escenario: : Crear un nuevo pedido exitoso en el sistema
+  Esquema del escenario: Crear un nuevo pedido exitoso en el sistema
     Dado que miguel quiere crear un nuevo pedido ingresa los datos del pedido
       | cliente   | fPedido   | fEnvio   | empleado   |
       | <cliente> | <fPedido> | <fEnvio> | <empleado> |

@@ -66,7 +66,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 script {
-                    scannerHome = tool 'SonarQubeScanner'
+                    scannerHome = tool 'SonarQube'
                     //mismo nombre del servidor configurado en las Global Tools Jenkins
                 }
                 withSonarQubeEnv('sonarQube')//mismo nombre del servidor configurado en la configuracion del sistema jenkins
