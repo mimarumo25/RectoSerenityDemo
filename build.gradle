@@ -34,9 +34,11 @@ dependencies {
     implementation 'net.serenity-bdd:serenity-cucumber:1.9.45'
     implementation('net.serenity-bdd:serenity-screenplay:2.0.73')
     implementation 'net.serenity-bdd:serenity-ensure:2.0.80'
+    implementation 'io.github.bonigarcia:webdrivermanager:5.2.3'
     implementation('net.serenity-bdd:serenity-screenplay-webdriver:2.0.73')
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.6.1'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.6.1'
-
+    implementation 'com.itextpdf:itextpdf:5.5.13'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
 }
 gradle.startParameter.continueOnFailure = true
