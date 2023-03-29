@@ -1,5 +1,12 @@
 package model;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.cucumber.datatable.DataTable;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class PedidoData {
     private String cliente;
     private String fPedido;
@@ -9,14 +16,14 @@ public class PedidoData {
     private String precio;
     private String cantidad;
 
-    public PedidoData(String cliente, String fPedido, String fEnvio, String empleado, String producto, String precio, String cantidad) {
-        this.cliente = cliente;
-        this.fPedido = fPedido;
-        this.fEnvio = fEnvio;
-        this.empleado = empleado;
-        this.producto = producto;
-        this.precio = precio;
-        this.cantidad = cantidad;
+
+    public static List<PedidoData> setData(DataTable dataTable) {
+        List<PedidoData> dates = new ArrayList<>();
+        List<Map<String, String>> mapInfo = dataTable.asMaps();
+        for (Map<String, String> map : mapInfo) {
+            dates.add(new ObjectMapper().convertValue(map, PedidoData.class));
+        }
+        return dates;
     }
 
     public String getCliente() {

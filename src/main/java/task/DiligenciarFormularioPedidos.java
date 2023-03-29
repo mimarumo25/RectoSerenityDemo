@@ -13,13 +13,13 @@ import java.util.List;
 
 public class DiligenciarFormularioPedidos implements Task {
 
-    private final List<PedidoData> pedido;
+    private final PedidoData pedido;
 
-    public DiligenciarFormularioPedidos(List<PedidoData> pedidos) {
-        this.pedido = pedidos;
+    public DiligenciarFormularioPedidos(PedidoData pedido) {
+        this.pedido = pedido;
     }
 
-    public static DiligenciarFormularioPedidos llenarPedidos(List<PedidoData> pedidos) {
+    public static DiligenciarFormularioPedidos llenarPedidos(PedidoData pedidos) {
         return new DiligenciarFormularioPedidos(pedidos);
     }
 
@@ -27,11 +27,11 @@ public class DiligenciarFormularioPedidos implements Task {
     public <T extends Actor> void performAs(T actor) {
     actor.attemptsTo(
             Click.on(CLIENTE),
-            SelectUnit.on(SELECT_CLIENTE_UL, pedido.get(0).getCliente()),
-            Enter.theValue(pedido.get(0).getfPedido()).into(DATE_FECHA_PEDIDO),
-            Enter.theValue(pedido.get(0).getfEnvio()).into(DATE_REQUERIDA_PEDIDO),
+            SelectUnit.on(SELECT_CLIENTE_UL, pedido.getCliente()),
+            Enter.theValue(pedido.getfPedido()).into(DATE_FECHA_PEDIDO),
+            Enter.theValue(pedido.getfEnvio()).into(DATE_REQUERIDA_PEDIDO),
             Click.on(SELECT_EMPLEADO),
-            SelectUnit.on(SELECT_EMPLEADO_UL, pedido.get(0).getEmpleado()),
+            SelectUnit.on(SELECT_EMPLEADO_UL, pedido.getEmpleado()),
             Click.on(BUTTON_PRODUCTOS)
 
     );

@@ -19,6 +19,7 @@ public class ManejoListas implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        //WebElement element = findObject(container);
         WebElement listLocation = element.resolveFor(actor);
         List<WebElement> options = listLocation.findElements(By.tagName("a"));
         for (WebElement i : options) {

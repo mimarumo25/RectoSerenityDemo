@@ -1,8 +1,11 @@
 package stepdefinitions;
 
 
-import cucumber.api.java.Before;
-import cucumber.api.java.es.*;
+
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.Before;
+import io.cucumber.java.es.*;
 import model.ClientesData;
 import model.PedidoData;
 import net.serenitybdd.screenplay.GivenWhenThen;
@@ -15,7 +18,7 @@ import task.*;
 
 import java.util.List;
 
-import static org.hamcrest.core.IsEqual.equalTo;
+
 
 public class SerenityStepDefinitions {
     @Before
@@ -25,7 +28,7 @@ public class SerenityStepDefinitions {
 
     @Dado("^que miguel quiere iniciar sesion con  \"([^\"]*)\" y \"([^\"]*)\" en serenity\\.is$")
     public void queMiguelQuiereIniciarSesionConYEnSerenityIs(String strUsuario, String strPassword) {
-        OnStage.theActorCalled("miguel").wasAbleTo(
+       OnStage.theActorCalled("miguel").wasAbleTo(
                 OpenSerenity.thePage(),
                 Login.conCredenciales(strUsuario, strPassword)
         );
@@ -40,8 +43,8 @@ public class SerenityStepDefinitions {
     }
 
     @Cuando("^miguel ingresa los datos del nuevo cliente y da clic en el boton guardar$")
-    public void miguelIngresaLosDatosDelNuevoClienteYDaClicEnElBotonGuardar(List<ClientesData> cliente) {
-        OnStage.theActorInTheSpotlight().attemptsTo(DiligenciarFormularioClientes.llenarFormulario(cliente));
+    public void miguelIngresaLosDatosDelNuevoClienteYDaClicEnElBotonGuardar(DataTable cliente) {
+        OnStage.theActorInTheSpotlight().attemptsTo(DiligenciarFormularioClientes.llenarFormulario(ClientesData.setData(cliente).get(0)));
     }
 
     @Entonces("^miguel debera ver el nuevo cliente en la lista general de cliente registrados en el sistema (.*)$")
@@ -52,14 +55,14 @@ public class SerenityStepDefinitions {
     }
 
     @Dado("^que miguel quiere crear un nuevo pedido ingresa los datos del pedido$")
-    public void queMiguelQuiereCrearUnNuevoPedidoIngresaLosDatosDelPedido(List<PedidoData> data) {
+    public void queMiguelQuiereCrearUnNuevoPedidoIngresaLosDatosDelPedido(DataTable data) {
         OnStage.theActorInTheSpotlight().attemptsTo(SeleccionarPedidos.submenuPedidos());
-        OnStage.theActorInTheSpotlight().attemptsTo(DiligenciarFormularioPedidos.llenarPedidos(data));
+        OnStage.theActorInTheSpotlight().attemptsTo(DiligenciarFormularioPedidos.llenarPedidos(PedidoData.setData(data).get(0)));
     }
 
     @Cuando("^miguel ingresa los productos del pedido y da clic en el boton guardarm$")
-    public void miguelIngresaLosProductosDelPedidoYDaClicEnElBotonGuardarm(List<PedidoData> producto) {
-        OnStage.theActorInTheSpotlight().attemptsTo(DiligenciarFormularioProductos.llenarProductos(producto));
+    public void miguelIngresaLosProductosDelPedidoYDaClicEnElBotonGuardarm(DataTable producto ) {
+        OnStage.theActorInTheSpotlight().attemptsTo(DiligenciarFormularioProductos.llenarProductos(PedidoData.setData(producto).get(0)));
     }
 
     @Entonces("^miguel debera ver el nuevo pedido en la lista general de pedidos registrados en el sistema$")

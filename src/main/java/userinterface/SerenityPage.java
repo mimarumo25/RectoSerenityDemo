@@ -14,7 +14,7 @@ public class SerenityPage extends PageObject {
     public static final Target BTN_NUEVO_CLIENTE = Target.the("Boton de nuevo cliente")
             .located(By.xpath("//*[@id='GridDiv']/div[2]/div[2]/div/div/div[1]"));
 
-    public static final Target LABEL_SUBMENU_PEDIDOS = Target.the("Label submenú clientes")
+    public static final Target LABEL_SUBMENU_PEDIDOS = Target.the("Label submenú Pedidos")
             .located(By.xpath("//span[contains(text(),'Orders')]"));
     public static final Target BTN_NUEVO_PEDIDOS = Target.the("Boton de nuevo cliente")
             .located(By.xpath("//i[@class='fa fa-plus-circle text-green']"));
