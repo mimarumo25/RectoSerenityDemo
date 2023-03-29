@@ -26,7 +26,7 @@ public class Hooks  {
                 break;
             case "iexplorer":
                 WebDriverManager.iedriver().setup();
-                break;cla
+                break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 break;
