@@ -1,8 +1,6 @@
 package stepdefinitions;
 
 
-
-
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.*;
@@ -11,12 +9,12 @@ import model.PedidoData;
 import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+
 import questions.ValidarSesion;
 import questions.VerificarClintes;
 import questions.VerificarPedidos;
 import task.*;
 
-import java.util.List;
 
 
 
@@ -27,8 +25,8 @@ public class SerenityStepDefinitions {
     }
 
     @Dado("^que miguel quiere iniciar sesion con  \"([^\"]*)\" y \"([^\"]*)\" en serenity\\.is$")
-    public void queMiguelQuiereIniciarSesionConYEnSerenityIs(String strUsuario, String strPassword) {
-       OnStage.theActorCalled("miguel").wasAbleTo(
+    public void queMiguelQuiereIniciarSesionConYEnSerenityIs(String strUsuario, String strPassword) throws InterruptedException {
+        OnStage.theActorCalled("miguel").wasAbleTo(
                 OpenSerenity.thePage(),
                 Login.conCredenciales(strUsuario, strPassword)
         );
@@ -61,7 +59,7 @@ public class SerenityStepDefinitions {
     }
 
     @Cuando("^miguel ingresa los productos del pedido y da clic en el boton guardarm$")
-    public void miguelIngresaLosProductosDelPedidoYDaClicEnElBotonGuardarm(DataTable producto ) {
+    public void miguelIngresaLosProductosDelPedidoYDaClicEnElBotonGuardarm(DataTable producto) {
         OnStage.theActorInTheSpotlight().attemptsTo(DiligenciarFormularioProductos.llenarProductos(PedidoData.setData(producto).get(0)));
     }
 

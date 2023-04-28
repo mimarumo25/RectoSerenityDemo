@@ -7,11 +7,13 @@ Característica: Inicio de sesion con usuario y password en la aplicacion sereni
   Para crear nuevos clientes y crear ordenes de pedido con sus respectivos productos
 
 
-  Antecedentes: Inicio de sección con usuario y password genéricos
-    Dado que miguel quiere iniciar sesion con  "admin" y "serenity" en serenity.is
+
+ # Antecedentes: Inicio de sección con usuario y password genéricos
+
 
   @Clientes @Regresion
   Esquema del escenario: Crear un nuevo cliente exitoso con todos los campos disponibles
+    Dado que miguel quiere iniciar sesion con  "admin" y "serenity" en serenity.is
     Dado que miguel quiere crear un nuevo cliente
     Cuando miguel ingresa los datos del nuevo cliente y da clic en el boton guardar
       | id   | empresa   | nContacto   | tContacto   | representante   | direccion   | pais   | ciudad   | region   | codigoPostal   | telefono   | fax   | fContacto   | uContactoPor   | correo   |
@@ -24,6 +26,7 @@ Característica: Inicio de sesion con usuario y password en la aplicacion sereni
 
   @Pedidos @Regresion
   Esquema del escenario: Crear un nuevo pedido exitoso en el sistema
+    Dado que miguel quiere iniciar sesion con  "admin" y "serenity" en serenity.is
     Dado que miguel quiere crear un nuevo pedido ingresa los datos del pedido
       | cliente   | fPedido   | fEnvio   | empleado   |
       | <cliente> | <fPedido> | <fEnvio> | <empleado> |
@@ -34,4 +37,5 @@ Característica: Inicio de sesion con usuario y password en la aplicacion sereni
     Ejemplos:
       | cliente                                    | fPedido    | fEnvio     | empleado       | producto          | precio | cantidad |
       | Ana Trujillo Emparedados y helados [ANATR] | 11/23/2022 | 11/26/2022 | Michael Suyama | Camembert Pierrot | 19.00  | 15       |
+
 

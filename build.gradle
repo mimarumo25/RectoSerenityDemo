@@ -49,11 +49,11 @@ dependencies {
 
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.6.1'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.6.1'
+    //Lectura del JSON y convertir en Pdf
     implementation group: 'com.itextpdf', name: 'itextpdf', version: '5.5.12'
-    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
     implementation 'com.google.code.gson:gson:2.2.2'
     implementation group: 'com.mopano', name: 'hibernate-json-org-contributor', version: '1.0'
-    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+
 
 
 
@@ -68,14 +68,14 @@ test {
     }
 
 }
-/*task ejecutarClaseJava(type: JavaExec) {
-    mainClass = 'utils.Utils'
+task ejecutarPDFCreator(type: JavaExec) {
+    mainClass = 'utils.LectorJson'
     classpath = sourceSets.main.runtimeClasspath
     doLast {
-        println 'Ejecutando la clase Utils al final del proyecto.'
+        println 'Reportes Creados en PDF Exitoso.'
     }
 }
-aggregate.finalizedBy ejecutarClaseJava*/
+aggregate.finalizedBy ejecutarPDFCreator
 
 
 

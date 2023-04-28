@@ -1,5 +1,6 @@
 package task;
 
+import junit.framework.TestResult;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -26,6 +27,7 @@ public class Login implements Task {
                 Enter.theValue(strUsuario).into(SerenityLoginPage.LOGIN_INPUT_USERNAME),
                 Enter.theValue(strPassword).into(SerenityLoginPage.LOGIN_INPUT_PASSWORD),
                 Click.on(SerenityLoginPage.LOGIN_BUTTON_SINGIN)
+
         );
 
     }
