@@ -12,7 +12,7 @@ pipeline {
         stage('Obtener Fuentes') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: "master"]],
-                          wdoGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: "GitPerso1", url: "https://github.com/mimarumo25/RectoSerenityDemo.git"]]])
+                          wdoGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: "GitPerson", url: "https://github.com/mimarumo25/RectoSerenityDemo.git"]]])
             }
         }
 

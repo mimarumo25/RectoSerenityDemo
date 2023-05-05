@@ -2,6 +2,7 @@ package task;
 
 import interactions.SelectUnit;
 import model.PedidoData;
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -37,6 +38,7 @@ public class DiligenciarFormularioProductos implements Task {
                 Click.on(BUTTON_GUARDAR_PEDIDO),
                WaitUntil.the(LBL_PEDIDO, isVisible()).forNoMoreThan(10).seconds()
         );
+        Serenity.recordReportData().withTitle("hola").andContents(producto.getPrecio());
 
     }
 }
