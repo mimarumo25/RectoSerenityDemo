@@ -63,57 +63,17 @@ pipeline {
                 }
             }
         }
-        stage('SonarQube analysis') {
-            steps {
-                script {
-                    scannerHome = tool 'SonarQubeScanner'
+     //   stage('SonarQube analysis') {
+        //    steps {
+        //        script {
+          //          scannerHome = tool 'SonarQubeScanner'
                     //mismo nombre del servidor configurado en las Global Tools Jenkins
-                }
-                withSonarQubeEnv('sonarQube')//mismo nombre del servidor configurado en la configuracion del sistema jenkins
-                        {
-                            bat 'sonar-scanner'
-                        }
-            }
-        }
-        stage('Send Email Report') {
-          steps {
-            script {
-              def reportPath = "target/site/serenity/index.html"
-              def reportFile = new File(reportPath)
-              def reportHtml = reportFile.text
-              def emailBody = """
-              <html>
-                <head>
-                  <style>
-                   body {
-                               background-color: #f2f2f2;
-                               font-family: Arial, Helvetica, sans-serif;
-                               font-size: 14px;
-                               color: #333;
-                           }
-                  </style>
-                </head>
-                <body>
-                  <h1>Reporte de Pruebas de Serenity</h1>
-                  <p>¡Hola!</p>
-                  <p>Adjunto el reporte de pruebas de Serenity. Haz clic en el enlace a continuación para ver los detalles:</p>
-                  <p><a href='https://tu-sitio-web.com/evidencia-de-pruebas'>Ver evidencia de pruebas</a></p>
-                  <p>¡Gracias por tu tiempo!</p>
-                </body>
-              </html>
-              """
-              emailext (
-                to: 'mrubidem@choucairtesting.com',
-                subject: 'Reporte de Pruebas de Serenity',
-                body: emailBody,
-                mimeType: 'text/html',
-                attachLog: true,
-                attachmentsPattern: 'target/logs/*.log',
-                compressLog: true,
-                replyTo: 'noreply@ejemplo.com'
-              )
-            }
-          }
-        }
+           //     }
+           //     withSonarQubeEnv('sonarQube')//mismo nombre del servidor configurado en la configuracion del sistema jenkins
+           //             {
+           //                 bat 'sonar-scanner'
+           //             }
+           // }
+        //}
     }
 }
