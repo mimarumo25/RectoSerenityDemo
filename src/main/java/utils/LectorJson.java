@@ -1,19 +1,21 @@
 package utils;
 
-
 import com.itextpdf.text.DocumentException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import utils.datosresult.ResultTest;
 
-import java.io.*;
-
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-
+/**
+ * Clase que lee archivos JSON y genera un documento PDF basado en los datos extraídos.
+ */
 public class LectorJson {
+    // Variables estáticas utilizadas para almacenar los datos extraídos del archivo JSON
     static String name = "";
     static int duration = 0;
     static String startTime = "";
@@ -29,6 +31,11 @@ public class LectorJson {
     static String rutaBase = System.getProperty("user.dir");
     static String folderPath = rutaBase + "/target/site/serenity";
 
+    /**
+     * Punto de entrada del programa.
+     *
+     * @param args Argumentos de línea de comandos (no se utilizan en este caso).
+     */
     public static void main(String[] args) {
         try {
             identificaJson();
@@ -39,18 +46,30 @@ public class LectorJson {
         }
     }
 
-
+    /**
+     * Identifica y procesa los archivos JSON en el directorio especificado.
+     *
+     * @throws IOException       Si ocurre un error de lectura de archivos.
+     * @throws DocumentException Si ocurre un error al generar el documento PDF.
+     */
     public static void identificaJson() throws IOException, DocumentException {
         File folder = new File(folderPath);
         File[] files = folder.listFiles();
         for (File file : files) {
             if (file.isFile() && file.getName().toLowerCase().endsWith(".json")) {
+                System.out.println(file.getName());
                 jsonFileReader(file.getName());
             }
-
         }
     }
 
+    /**
+     * Lee y procesa un archivo JSON especificado.
+     *
+     * @param file Nombre del archivo JSON.
+     * @throws IOException       Si ocurre un error de lectura de archivos.
+     * @throws DocumentException Si ocurre un error al generar el documento PDF.
+     */
     public static void jsonFileReader(String file) throws IOException, DocumentException {
         String rutaArchivo = folderPath + "/" + file;
         byte[] bytes = Files.readAllBytes(Paths.get(rutaArchivo));
@@ -108,16 +127,14 @@ public class LectorJson {
                         }
                     }
                 }
-
-
             } catch (Exception e) {
                 e.getStackTrace();
             }
         }
 
+        // Crear un objeto ResultTest y generar el documento PDF resultante y le pasa como parámetro la información extraída del archivo JSON
         ResultTest resultado = new ResultTest(name, duration, startTime, result, scenario, driver, pasos);
         PlantillaBasePDF plantillaBasePDF = new PlantillaBasePDF();
         plantillaBasePDF.crearPlantillaPDF(folderPath, resultado);
     }
-
 }

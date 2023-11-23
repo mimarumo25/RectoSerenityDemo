@@ -1,0 +1,14 @@
+
+`	java:S112+"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+`	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+e
+java:S1192f"JDefine a constant instead of duplicating this literal "exception" 4 times.(´¢±èÿÿÿÿÿ
+b
+java:S1192X"LDefine a constant instead of duplicating this literal "description" 4 times.(½¯Ð¿
+_
+java:S1192Y"IDefine a constant instead of duplicating this literal "children" 3 times.(÷ªœä
+_
+java:S2147,"DCombine this catch with the one at line 42, which has the same body.(ÿ‰À¾üÿÿÿÿ
+E	java:S106<"+Replace this use of System.out by a logger.(Õ§îŽþÿÿÿÿ
+h
+java:S3776I"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(²žŸÚ

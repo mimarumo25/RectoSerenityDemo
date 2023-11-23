@@ -1,0 +1,12 @@
+
+7
+java:S1170"!Make this final field static too.(Ü—¸Ö
+O
+java:S2864c"4Iterate over the "entrySet" instead of the "keySet".(ÀäÄ»ûÿÿÿÿ
+_
+java:S3252"DUse static access with "com.itextpdf.text.Element" for "ALIGN_LEFT".(‹‰Ñšÿÿÿÿÿ
+r
+java:S2159”"VRemove this call to "equals"; comparisons between unrelated types always return false.(¡ûêüÿÿÿÿ
+F	java:S106"+Replace this use of System.out by a logger.(÷åùŒıÿÿÿÿ
+A	java:S106°"+Replace this use of System.out by a logger.(ö¬
+A	java:S106Ó"+Replace this use of System.out by a logger.(›Ë­â

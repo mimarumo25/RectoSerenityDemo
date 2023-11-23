@@ -8,9 +8,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(features = "src/test/resources/features/serenity.feature",
-        tags = "@Regresion",
+        tags = "@Clientes",
         glue = "stepdefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE )
+        plugin = {"pretty", "json:target/cucumber-reports/cucumber.json"},
+        snippets = CucumberOptions.SnippetType.CAMELCASE
+)
 public class RunnerTags {
 
 }

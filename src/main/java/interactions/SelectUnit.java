@@ -26,7 +26,7 @@ public class SelectUnit implements Interaction {
     public <T extends Actor> void performAs(T actor) {
 
         WebElement listLocation = element.resolveFor(actor);
-        List<WebElement> options = listLocation.findElements(By.tagName("li"));
+        List<WebElement> options = listLocation.findElements(By.tagName("span"));
         for (WebElement i : options) {
             if (i.getText().contains(name)){
                 i.click();

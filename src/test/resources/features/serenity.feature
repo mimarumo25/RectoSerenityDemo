@@ -6,13 +6,13 @@ Característica: Inicio de sesion con usuario y password en la aplicacion sereni
   Como usuario, Quiero iniciar sesion en serenity.is con usuario y password
   Para crear nuevos clientes y crear ordenes de pedido con sus respectivos productos
 
-
-
  # Antecedentes: Inicio de sección con usuario y password genéricos
 
 
   @Clientes @Regresion
-  Esquema del escenario: Crear un nuevo cliente exitoso con todos los campos disponibles
+  Esquema del escenario: Crear un nuevo cliente exitoso con todos los campos disponibles-33
+      # Esto es una descripción del escenario
+
     Dado que miguel quiere iniciar sesion con  "admin" y "serenity" en serenity.is
     Dado que miguel quiere crear un nuevo cliente
     Cuando miguel ingresa los datos del nuevo cliente y da clic en el boton guardar

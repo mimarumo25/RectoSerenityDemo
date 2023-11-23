@@ -14,7 +14,7 @@ apply plugin: "net.serenity-bdd.serenity-gradle-plugin"
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
-def versionSerenity = '3.3.2'
+def versionSerenity = '4.0.19'
 def versionCucumber = '7.6.0'
 repositories {
     mavenCentral()
@@ -32,11 +32,11 @@ buildscript {
         }
     }
     dependencies {
-        classpath "net.serenity-bdd:serenity-gradle-plugin:3.3.2"
+        classpath "net.serenity-bdd:serenity-gradle-plugin:4.0.19"
     }
 }
 dependencies {
-    implementation 'net.serenity-bdd:serenity-cucumber:3.3.2'
+    implementation 'net.serenity-bdd:serenity-cucumber:4.0.19'
     implementation group: 'io.cucumber', name: 'datatable', version: "${versionCucumber}"
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: "${versionCucumber}"
     implementation group: 'net.serenity-bdd', name: 'serenity-screenplay', version: "${versionSerenity}"
@@ -53,10 +53,6 @@ dependencies {
     implementation group: 'com.itextpdf', name: 'itextpdf', version: '5.5.12'
     implementation 'com.google.code.gson:gson:2.2.2'
     implementation group: 'com.mopano', name: 'hibernate-json-org-contributor', version: '1.0'
-
-
-
-
 
 
 }
